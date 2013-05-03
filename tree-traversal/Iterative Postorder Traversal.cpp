@@ -56,3 +56,39 @@ void postOrderIterative(TreeNode* root)
 		}
 	} while (!s.empty());
 }
+
+//Iterative Postorder Traversal (Using Two Stacks)
+/*
+利用反后序遍历结果与前序遍历结果的对比，后序遍历结果：452 673 1，
+反后序遍历结果：1 376 254，前序遍历结果：1 245 367
+*/
+void postOrderIterative2(TreeNode* root)
+{
+	if (!root)
+	{
+		return;
+	}
+	stack<TreeNode*> s1,s2;
+	s1.push(root);
+	while (!s1.empty())
+	{
+		TreeNode* node=s1.top();
+		s2.push(node);
+		s1.pop();
+		if (node->left)
+		{
+			s1.push(node->left);
+		}
+		if (node->right)
+		{
+			s1.push(node->right);
+		}
+	}
+	while (!s2.empty())
+	{
+		TreeNode* node=s2.top();
+		cout<<node->val<<" ";
+		s2.pop();
+	}
+}
+
