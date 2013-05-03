@@ -53,7 +53,9 @@ TreeNode *k_smallest_element_inorder(TreeNode* root,int k)
 	return node;
 }
 
-//方法二：
+//方法二：扩张树节点数据结构，每个节点维护一个所在子树节点总个数的域；
+
+
 
 
 
