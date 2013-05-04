@@ -42,7 +42,7 @@ TreeNode * inOrderSuccessor(TreeNode *root, TreeNode *node)
 	return cur;
 }
 
-//方法二：从根处搜索
+//方法二：从根处搜索，不需要父指针，时间复杂度：O(h)；
 TreeNode * inOrderSuccessor1(TreeNode *root, TreeNode *node)
 {
 	if (!root)
