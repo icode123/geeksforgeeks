@@ -1,6 +1,6 @@
 //http://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/
 
-//方法一：使用父指针
+//方法一：使用父指针，时间复杂度：O(h)；
 struct TreeNode 
 {
   int val;
