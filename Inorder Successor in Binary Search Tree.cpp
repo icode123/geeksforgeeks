@@ -3,7 +3,7 @@
 //方法一：使用父指针，时间复杂度：O(h)；
 struct TreeNode 
 {
-  int val;
+	int val;
 	TreeNode *left;
 	TreeNode *right;
 	TreeNode *parent;
@@ -25,6 +25,10 @@ TreeNode * minValue(TreeNode* node)
 
 TreeNode * inOrderSuccessor(TreeNode *root, TreeNode *node)
 {
+	if (!root)
+	{
+		return NULL;
+	}
 	if (node->right)
 	{
 		return minValue(node->right);
