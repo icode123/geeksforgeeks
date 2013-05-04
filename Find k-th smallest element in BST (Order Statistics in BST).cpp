@@ -123,6 +123,34 @@ TreeNode *k_smallest_element_inorder2(TreeNode* root,int k)
 	}
 }
 
+//方法三：递归实现，按照左根右的顺序来实现；
+struct TreeNode 
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+TreeNode *k_smallest_element_inorder3(TreeNode* root,int &k)
+{
+	if (!root || k<=0)
+	{
+		return NULL;
+	}
+	TreeNode* left=k_smallest_element_inorder3(root->left,k);
+	if (left)
+	{
+		return left;
+	}
+	--k;
+	if (!k)
+	{
+		return root;
+	}
+	TreeNode* right=k_smallest_element_inorder3(root->right,k);
+	return right;
+}
 
 
 
