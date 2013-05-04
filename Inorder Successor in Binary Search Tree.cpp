@@ -43,3 +43,29 @@ TreeNode * inOrderSuccessor(TreeNode *root, TreeNode *node)
 }
 
 //方法二：从根处搜索
+TreeNode * inOrderSuccessor1(TreeNode *root, TreeNode *node)
+{
+	if (!root)
+	{
+		return NULL;
+	}
+	if (node->right)
+	{
+		return minValue(node->right);
+	}
+	TreeNode *succ=NULL;
+	while (root)
+	{
+		if (node->val<root->val)
+		{
+			succ=root;
+			root=root->left;
+		}
+		else if (node->val>root->val)
+		{
+			root=root->right;
+		}
+		else break;
+	}
+	return succ;
+}
