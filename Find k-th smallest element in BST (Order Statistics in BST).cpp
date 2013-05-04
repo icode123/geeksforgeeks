@@ -54,7 +54,44 @@ TreeNode *k_smallest_element_inorder(TreeNode* root,int k)
 }
 
 //方法二：扩张树节点数据结构，每个节点维护一个所在子树节点总个数的域；
+struct TreeNode 
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
+//产生重复计算，需要优化
+int getNum(TreeNode* node)
+{
+	if (!node)
+	{
+		return 0;
+	}
+	else return getNum(node->left)+getNum(node->right)+1;
+}
+
+TreeNode *k_smallest_element_inorder2(TreeNode* root,int k)
+{
+	if (!root || k<=0)
+	{
+		return NULL;
+	}
+	int num=getNum(root->left)+1;
+	if (k==num)
+	{
+		return root;
+	}
+	else if (k<num)
+	{
+		return k_smallest_element_inorder2(root->left,k);
+	}
+	else if (k>num)
+	{
+		return k_smallest_element_inorder2(root->right,k-num);
+	}
+}
 
 
 
