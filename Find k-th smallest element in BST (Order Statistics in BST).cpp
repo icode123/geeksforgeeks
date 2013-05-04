@@ -71,7 +71,37 @@ int getNum(TreeNode* node)
 	}
 	else return getNum(node->left)+getNum(node->right)+1;
 }
-
+//优化版
+/*
+map<TreeNode*,int> hash;
+int getNum(TreeNode* node)
+{
+	if (!node)
+	{
+		return 0;
+	}
+	else if (!node->left && !node->right)
+	{
+		return 1;
+	}
+	else 	
+	{
+		if (hash.find(node)==hash.end())
+		{
+			if (hash.find(node->left)==hash.end())
+			{
+				hash[node->left]=getNum(node->left);
+			}
+			if (hash.find(node->right)==hash.end())
+			{
+				hash[node->right]=getNum(node->right);
+			}
+			hash[node]=hash[node->left]+hash[node->right]+1;
+		}
+		return hash[node];
+	}
+}
+*/
 TreeNode *k_smallest_element_inorder2(TreeNode* root,int k)
 {
 	if (!root || k<=0)
