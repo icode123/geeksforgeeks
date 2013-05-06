@@ -18,6 +18,7 @@ void reverseWords(char *s)
 {
 	char *word_begin=NULL;
 	char *tmp=s;
+	//while (*tmp)效果一致
 	while (*tmp!='\0')
 	{
 		if (word_begin==NULL && *tmp!=' ')
