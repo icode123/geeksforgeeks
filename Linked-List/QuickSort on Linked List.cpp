@@ -47,7 +47,7 @@ Node* partition(Node *l, Node *h)
 }
 void _quickSort(Node* l, Node *h)
 {
-	if (l && h && l!=h && )
+	if (l && h && l!=h)
 	{
 		Node* p=partition(l,h);
 		_quickSort(l,p->prev);
