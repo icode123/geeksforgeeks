@@ -135,7 +135,7 @@ private:
 	inline void _remove(const Map_Iter &miter)
 	{
 		_cur_size-=Sizefn()(miter->second->second);
-	    _list.erase(miter->second);
+	        _list.erase(miter->second);
 		_index.erase(miter);
 	}
 	inline void _remove(const Key &key)
